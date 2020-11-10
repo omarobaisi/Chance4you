@@ -1,0 +1,174 @@
+input {
+    border: none;
+    outline: none;
+}
+.prod-bg{
+    display:flex;
+    flex-direction: row-reverse;
+    width: 70%;
+    background-color: #fff;
+    height: 700px;
+    margin: auto;
+}
+.prod-bg-right {
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+    background-image: url("../rcs/paths/Path\ 12\ \(2\).svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-right: 35px;
+}
+.field-row {
+    width: 80%; 
+    height: 45px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 15px 0;
+    margin-left: auto;
+    padding-right: 15px;
+}
+#avlBox{
+    background-color: #fff;
+}
+.field-row input, .field-row select {
+    width: 85%;
+    max-width: 400px;
+    min-width:200px;
+    margin-left: auto;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    font-weight: normal;
+    text-align: right;
+    background-color:#fff;
+    padding: 5px;
+    padding-right: 15px;
+}
+.field-row .box {
+    width: 100%;
+    max-width: 400px;
+    min-width:200px;
+    height: 100%;
+    padding: 5px;
+    padding-left: 10px;
+}
+.field-row .box>a {
+    color: #012345;
+}
+#quanBox {
+    margin-left: auto;
+}
+#quan{
+    width: 30px;
+    min-width: 30px;
+    height: -webkit-fill-available;
+    height: 100%;
+    padding: 0;
+}
+
+#quanMin, #quanAdd  {
+    height: -webkit-fill-available;
+    height: 100%;
+    text-align: center;
+    line-height: 1.5;
+    padding: 10px;
+}
+.count-box{
+    height: -webkit-fill-available;
+    height: 100%;
+    overflow: hidden;
+}
+.field-row .box>.combo-btn {
+     text-align: right; 
+     margin-left: auto; 
+     min-width: auto;
+     font-weight: normal;
+     cursor: pointer;
+}
+.field-row .menu {
+    margin-top:40px;
+    align-self: flex-end;
+}
+.field-row>label {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-left: 15px;
+    width: 150px;
+    color: #002731;
+}
+.prod-bg-right .field-row>label, .prod-bg-right>h1 {
+    color:white;
+}
+.img-mask  {
+    width: 85%;
+    max-width: 400px;
+    min-width:200px;
+    height: 100%;
+    outline: none;
+}
+.filepond--drop-label {
+    color: #555;
+}
+.prod-bg-left {
+    width: 50%;
+    padding-top: 35px;
+    padding-right: 35px;
+    display: flex;
+    flex-direction: column;
+}
+.field-row input[type="submit"] {
+    border: none;
+    outline: none;
+    background-color: #002731;
+    color: white;
+    height: 55px;
+    width: 75px;
+    padding: 5px 10px;
+    padding-bottom: 7.5px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 100px;
+    margin-top:25px;
+    margin-right: auto;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.field-row input[type="submit"]:hover {
+    background-color: #066780;
+}
+@media (max-width:1200px) {
+    .prod-bg {
+        flex-direction: column;
+        height: 1400px;
+        width: 85%;
+    }
+    .prod-bg-right {
+        background-image: none;
+        background-color: #002731;
+        width: 100%;
+        padding-bottom: 250px;
+    }
+    .prod-bg-right>h1 {
+        padding-right: 25px;
+    }
+    .prod-bg-right>.field-row {
+        margin-right: 25px;
+    }
+    .prod-bg-left {
+        width: 100%;
+    }
+}
+@media (max-width:600px) {
+    .field-row>label {
+        display: none;
+    }
+    .prod-bg {
+        width: 105%;
+    }
+}

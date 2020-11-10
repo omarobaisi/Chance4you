@@ -1,0 +1,83 @@
+    <link rel="stylesheet" href="/styles/public.css">
+    <link rel="stylesheet" href="/styles/scroller.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <div>
+        <svg class="path" id="topSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="100 175 1820.175 741.742"><defs><style>.a{fill:#002731;}.b{filter:url(#a);}</style><filter id="a" x="0" y="0" width="1986.175" height="741.742" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="11" result="b"/><feFlood flood-opacity="0.161"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="b" transform="matrix(1, 0, 0, 1, 0, 0)"><path class="a" d="M1919.825,0H-.175V592s229.92-59.242,509.793-39.629c315.3,22.1,698.283,123.371,953.165,123.371,252,0,365.371-23.081,416.229-45.013C1925,610.895,1919.825,592,1919.825,592Z" transform="translate(33.18 33)"/></g></svg> 
+    </div>
+    <a href="/" id="logoHid" ><img src="/rcs/logo.svg"></a>
+    <div class="navbar-contianer">
+        <span class="cart-count-bg"><label id="cartCountLbl">
+            <% if(session.cart) { %>
+                <%= session.cart.totalQty %>
+            <% } else { %>
+                0
+            <% } %> 
+        </label></span>
+        <div class="navbar-right">
+            <a href="/"><img src="/rcs/logo.svg"></a>
+            <form action="/product/search" method="GET" class="search-div shadow-light">
+                <a href="#" id="dropBtn"><i class="fas fa-bars"></i></a>
+                <input type="text" name="search" placeholder="ابحث هنا" class="text-field text-field-round">
+                <i class="fas fa-search search-btn"></i>
+                <input type="submit" id="submitSearch" style="display:none;">
+            </form>
+        </div>
+        <div class="navbar-links">
+            <div class="box">
+                <a href="#" class="navbar-link" id="moreCaret0"><i class="fas fa-caret-down nav-icon" id="cI-0"></i>المنزل </a>
+                <div class="menu d-none" id="menu0">
+                    <a href="#" class="section-search">الادوات المنزلية</a>
+                    <a href="#" class="section-search">التحف والهدايا</a>
+                  </div>
+            </div>
+            <div class="box">
+                <a href="#" class="navbar-link" id="moreCaret1"><i class="fas fa-caret-down nav-icon" id="cI-1"></i>اطفال</a>
+                <form class="menu d-none" id="menu1">
+                    <a href="#" class="section-search">العاب الاطفال</a>
+                    <a href="#" class="section-search">القرطاسية</a>
+                  </form>
+            </div>  
+            <div class="box">
+                <a href="#" class="navbar-link" id="moreCaret2"><i class="fas fa-caret-down nav-icon" id="cI-2"></i>الملابس والاحذية</a>
+                <div class="menu d-none" id="menu2">
+                    <a href="#" class="section-search">ملابس رجالية</a>
+                    <a href="#" class="section-search">ملابس نسائية</a>
+                    <a href="#" class="section-search">احذية رجالي</a>
+                    <a href="#" class="section-search">احذية نسائي</a>
+                  </div>
+            </div>
+            <div class="box">
+                <a href="#" class="navbar-link" id="moreCaret3"><i class="fas fa-caret-down nav-icon" id="cI-3"></i>الاناقة والجمال</a>
+                <div class="menu d-none" id="menu3">
+                    <a href="#" class="section-search">الاكسسوارات</a>
+                    <a href="#" class="section-search">المكياج والتجميل</a>
+                </div>
+            </div>
+            <a href="/shop/shopping-cart" class="navbar-link-static" id="cart"><i class="fas fa-shopping-cart nav-icon"></i>السلة</a>
+            <div class="box" id="accBox">
+                <a href="#" class="navbar-link-static" id="acc"><i class="fas fa-user nav-icon" id="cI-4"></i>
+                    <% if(!currentUser) {%> 
+                        حسابي
+                    <% } else { %>
+                        <%= currentUser.firstname %> 
+                    <% } %> 
+                </a>
+                <div class="menu d-none" id="menu4">
+                    <% if(!currentUser) {%> 
+                        <a href="/user/login">تسجيل الدخول</a>
+                        <a href="/user/register">انشاء حساب</a>
+                    <% } else if(currentUser && currentUser.isAdmin){ %>
+                        <a href="/order">الطلبات</a>
+                        <a href="/user/logout">تسجيل الخروج</a>
+                    <% } else { %>
+                        <a href="/user/profile">الطلبات</a>
+                        <a href="/user/logout">تسجيل الخروج</a>
+                    <% } %> 
+                </div>
+            </div>
+        </div>
+    </div>

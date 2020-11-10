@@ -1,0 +1,223 @@
+.main-container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 75%;
+    height: 700px;
+    background-color: white;
+    margin: auto;
+    margin-top:50px;
+    overflow: hidden;
+}
+.main-container-right {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-image: url("../rcs/paths/Path\ 12\ \(2\).svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: space-around;
+    padding: 85px 75px 85px 25px;
+}
+.main-container-right .cont-row {
+    width: 80%;
+}
+.cont-row {
+    margin-left: auto;  
+    height: 45px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 20px;
+}
+.cont-row input {
+    width: 85%;
+    max-width: 400px;
+    min-width:200px;
+    margin-left: auto;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    font-weight: normal;
+    text-align: right;
+    background-color:#fff;
+    padding: 5px;
+    padding-right: 15px;
+}
+
+.cont-row label {
+    font-size: 18px;
+    font-weight: normal;
+    text-align: right;
+    margin-left: 15px;
+    width: 100px;
+}
+
+.main-container-right .cont-row label {
+    color: white;
+}
+
+.main-container-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:40%;
+}
+
+.main-container-right h1, .main-container-right h2 {
+    color: white;
+}
+
+.main-container-right h1 {
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.main-container-right h2 {
+    margin: 10px 0 10px 0;
+}
+
+.main-container-left h2 {
+    margin: 0px 20px 15px 0;
+}
+
+.main-container-left .cont-row {
+    margin: 17.5px 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: 25px;
+    
+}
+.main-container-left input[type="submit"] {
+    border: none;
+    outline: none;
+    background-color: #002731;
+    color: white;
+    height: 55px;
+    width: 75px;
+    padding: 5px 10px;
+    font-size: 20px;
+    text-align: center;
+    margin-right: auto;
+    transition: 0.3s;
+}
+.price-cont {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+    padding: 25px;
+    margin-top: 25px;
+    background-color:white;
+}
+.tot-line, .tot-line-bottom {
+    margin-left:auto;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 70%;
+    justify-content: space-between;
+}
+.price-cont h1 {
+    font-size: 35px;
+    margin: 10px 0;
+}
+.tot-line h2, .tot-line h3 {
+    font-size: 25px;
+    font-weight: lighter;
+    margin: 5px;
+}
+.tot-line-bottom h2, .tot-line-bottom h3 {
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+#subBtn{
+    background-color: #002731;
+    color: #fff;
+    width: 40%;
+    height: 40px;
+    margin-left: 37.5%;
+    text-align: center;
+    padding: 40px 7.5px;
+    padding-top: 17.5px;
+    font-size: 20px;
+    margin-top: 25px;
+    font-weight: 500;
+    transition:0.3s;
+    outline: none;
+    border: none;
+}
+#subBtn:hover {
+    background-color: #fff;
+    color: black;
+}
+.main-container-left input[type="submit"]:hover {
+    background-color: #066780;
+}
+.logged-in {
+    height: 500px;
+    background-color: #066780;
+    background-image: none;
+    width: 600px;
+    margin: auto;
+    margin-top:35px;
+}
+#contBtn {
+    background-color: #002731;
+    color: white;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    padding: 40px 7.5px;
+    padding-top: 17.5px;
+    font-size: 20px;
+    margin-left: 75px;
+    margin-top: 25px;
+    font-weight: 500;
+    transition:0.3s;
+    outline: none;
+    border: none;
+}
+#contBtn:hover {
+    background-color: #066780;
+    color: #fff;
+}
+@media (max-width: 1200px) {
+    .main-container {
+        flex-direction: column;
+        height: 1150px;
+    }
+    .main-container-right {
+        padding: 0;
+        background-image: none;
+        background-color: #002731;
+        width: 100%;
+        height: 70%;
+        justify-content: center;
+    }
+    .main-container-right h1{
+        margin: 25px 25px;
+    }
+    .main-container-right h2{
+        margin: 20px 25px;
+    }
+    .main-container-right .cont-row {
+        margin: 17.5px auto;
+    }
+    .main-container-left {
+        padding: 0;
+        height: 30%;
+        width: 100%;
+    }
+}
+@media (max-width: 900px) {
+    .main-container {
+        width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .cont-row label {
+        display: none;
+    }
+}

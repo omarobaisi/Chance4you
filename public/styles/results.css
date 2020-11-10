@@ -1,0 +1,49 @@
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    width: 85%;
+    height: auto;
+    min-height: 500px;
+    margin: auto;
+    background-color: white;
+    padding: 25px;
+    justify-content: center;
+}
+.card {
+    margin: 25px;
+}
+.count-box {
+    width: auto;
+    height: 55px;
+    margin: 25px auto;
+    overflow: hidden;
+}
+.count-box .fa-caret-left, .count-box .fa-caret-right {
+    padding: 10px 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    height: 27px;
+}
+.count-box #pageNum {
+    height: 100%;
+}
+.resTitle {
+    color: white;
+    margin-right: 200px;
+    margin-bottom: 25px;
+    margin-top: 35px;
+    text-align: right;
+    direction: rtl;
+}
+.botton-page-div {
+    display: flex;
+    width: auto;
+    margin: 15px auto;
+    align-items: center;
+}
+.botton-page-div h3 {
+    font-size: 20px;
+    margin: auto 10px;
+    direction: rtl;
+}

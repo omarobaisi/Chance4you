@@ -1,0 +1,99 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" href="/styles/product.css">
+<title>المنتج</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+<%- include("../partials/discount") %>
+
+<div id="pageMask">
+    <img src="<%= product.image %>" class="" id="imgExpanded">
+    <i class="fas fa-times"></i>
+</div>
+<div class="product-bg round shadow" data-aos="fade-up" data-aos-duration="750">
+    <div class="product-right">
+        <div class="product-info">
+            <div class="info-header">
+                <h1><%= product.name %></h1>
+                <% if(product.visible == "متوفر") { %> 
+                    <h2 id="aval" style="margin-right: 50px;"><%= product.visible %></h2>
+                <% } else { %>
+                    <h2 id="aval" style="color: hsl(357, 69%, 40%);margin-right: 50px;width: 200px"><%= product.visible %></h2>
+                <% } %> 
+            </div>
+            <p><%= product.description %></p>
+            <% if(product.color) { %> 
+                <h2>اللون: <%= product.color %></h2>
+            <% } %>
+            <% if(product.weight) { %> 
+                <h2>الوزن: <%= product.weight %></h2>
+            <% } %>
+            <% if(product.size) { %> 
+                <h2>القياسات: <%= product.size %></h2>
+            <% } %>
+            
+            <div class="count-line">
+                <% if(product.dicountprice) { %> 
+                    <h2 id="dicountPrice" style="color: hsl(357, 69%, 40%)">
+                        ₪<%= product.dicountprice %>
+                    </h2>
+                    <h2 id="price" style="text-decoration: line-through; margin-left: 10px;">
+                        ₪<%= product.price %>
+                    </h2>
+                <% } else { %>
+                    <h2 id="price">
+                        ₪<%= product.price %>
+                    </h2>
+                <% } %>
+            </div>
+            <div class="mod-cont">
+                <% if(product.visible == "متوفر") { %> 
+                    <a href="/shop/add-to-cart/<%= product._id %>" class="mod-btn round shadow-light-light">إضافة الى السلة</a>
+                <% } %>
+                <% if(currentUser && currentUser.isAdmin){ %> 
+                    <a href="/product/<%= product._id %>/edit" class="mod-btn round shadow-light-light" id="editProdBtn"><i class="fas fa-edit"></i></a>
+                    <form action="/product/<%= product._id %>?_method=DELETE" method="POST">
+                        <button class="round" id="delProdBtn"><i class="fas fa-trash"></i></button>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+</div>
+<img src="<%= product.image %>" class="img-prev">
+</div>
+<h1 class="headline" id="firstHeadline">منتجات مشابهة</h1>
+<div class="scrollView-container">
+<Button class="arrow-btn shadow-light left-btn"><i class="fas fa-arrow-left shadow"></i></Button>
+<div class="scroll-view">
+    <% for(var i=0; i<products.length; i++) { %>
+        <% var a = 0 %> 
+        <% if(product.category === products[i].category && product.name != products[i].name && products[i].visible == "متوفر" && a <11) { %>
+            <% a++ %> 
+            <div href="#" class="card shadow round" data-aos="zoom-out" data-aos="zoom-out" data-aos="zoom-out">
+                <img src="<%= products[i].image %>">
+                <div class="card-info-cont">
+                    <a href="#" class="add-btn"><i class="fas fa-plus"></i></a>
+                    <div class="card-title">
+                        <h1><%= products[i].name %></h1>
+                        <% if(products[i].dicountprice) { %> 
+                            <h2 style="text-decoration: line-through; margin-bottom: 0;">₪<%= products[i].price %></h2>
+                            <h2 style="color: hsl(357, 69%, 40%); margin-top: 0;">₪<%= products[i].dicountprice %></h2>
+                        <% } else { %>
+                            <h2>₪<%= products[i].price %></h2>
+                        <% } %>
+                    </div>
+                    <div class="card-bottom">
+                      <h3>متوفر</h3>
+                      <a href="<%= products[i]._id %>" class="round shadow-light">المزيد</a>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+<Button class="arrow-btn shadow-light right-btn"><i class="fas fa-arrow-right shadow"></i></Button>
+</div>
+
+<%- include("../partials/Ifooter") %>
+<script src="/scripts/incDecTF.js"></script>
+<script src="/scripts/product.js"></script>
+<%- include("../partials/Ifooter2") %>

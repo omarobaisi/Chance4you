@@ -1,0 +1,96 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<link rel="stylesheet" href="/styles/cart.css">
+<link rel="stylesheet" href="/styles/adminOrderDetails.css">
+<title>معلومات الطلب</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+    <div class="cart-container round shadow" data-aos-duration="750" data-aos="fade-up">
+        <div class="cart-right">
+            <div class="header-row">
+                <form action="/order/delete/<%= order._id %>?_method=DELETE" method="POST" class="btns-row" style="margin-bottom: 10px;">
+                    <button class="del-btn round shadow"><i class="fas fa-trash"></i></button>
+                </form>
+                <h1 class="cart-title-lbl"> 3# الطلب رقم</h1>
+            </div>
+            <div class="header-row">
+                <% if(order.delivered === true) { %>
+                    <form action="/order/indeliver/<%= order._id %>" method="POST" class="header-row">
+                        <input type="checkbox" class="delivered-checkbox" checked>
+                        <label for="" class="delivered-lbl">تم تسليمه</label>
+                        <input type="submit" style="display:none" id="submitDel">
+                    </form>
+                <% } else { %>
+                    <form action="/order/indeliver/<%= order._id %>" method="POST" class="header-row">
+                        <input type="checkbox" class="delivered-checkbox">
+                        <label for="" class="delivered-lbl">تم تسليمه</label>
+                        <input type="submit" style="display:none" id="submitDel">
+                    </form>
+                <% } %>
+            </div>
+            <% order.items.forEach(function(item) { %>
+                <div class="cart-item round shadow" id="item1">
+                    <img src="<%= item.item.image %>">
+                    <h1><%= item.item.name %></h1>
+                    <h2 id="price1"> <%= item.price %>₪ </h2>
+                    <img style="width: 35px; display: inline; margin-left: 3px; height: 100%; max-height: 100%; padding-right: 3px;" src="/rcs/product-dark.svg">
+                    <h2 id="price1" style="margin-right: 3px; margin-left: 10px; font-weight: bold;"> <%= item.qty %> </h2>
+                </div>
+            <% }); %>
+        </div>
+        <div class="cart-left">
+            <h1>
+                المجموع
+            </h1>
+            <div class="tot-line">
+                <h2>تكلفة المشتريات</h2>
+                <h3 id="prodCost"><%= order.cart.totalPrice %>₪</h3>
+            </div>
+            <div class="tot-line">
+                <h2>تكلفة التوصيل</h2>
+                <h3 id="shippingCost">0₪</h3>
+            </div>
+            <div class="tot-line-bottom">
+                <h2>الاجمالي</h2>
+                <h3 id="totalCost"><%= order.cart.totalPrice %>₪</h3>
+            </div>
+        </div>
+    </div>
+    <h2 style="margin: 50px auto 20px auto; font-size: 25px;">معلومات المشتري</h2>
+    <div class="cart-container round shadow" id="info-box-container" data-aos="fade-up" data-aos-duration="750">
+        <div class="info-box right">
+            <div class="cont-row">
+                <label for="firstName">الإسم</label>
+                <input class="round shadow" type="text" name="name" placeholder="الإسم الاول" value="<%= order.name %>" id="" readonly>
+            </div>
+            <div class="cont-row">
+                <label for="phone">الهاتف</label>
+                <input class="round shadow" type="text" name="phone" placeholder="الهاتف" id="phone" value="0<%= order.phone %>" readonly>
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="cont-row">
+                <label for="city">المدينة</label>
+                <input class="round shadow" type="text" name="city" placeholder="المدينة" value="<%= order.city %>" id="" readonly>
+            </div>
+            <div class="cont-row">
+                <label for="address">العنوان</label>
+                <input class="round shadow" type="text" name="address" placeholder="العنوان" value="<%= order.address %>" id="" readonly>
+            </div>
+            <div class="cont-row">
+                <label for="eMail">البريد الإلكتروني</label>
+                <input class="round shadow" type="email" name="eMail" placeholder="البريد الإلكتروني" value="<%= order.email %>" id="" readonly>
+            </div>
+        </div>
+    </div>
+
+<%- include("../partials/Ifooter") %>
+<script src="/scripts/incDecTF.js"></script>
+<script src="/scripts/cart.js"></script>
+<script>
+    $(".delivered-checkbox").on('click', function () {
+        $("#submitDel").trigger('click');
+    });
+</script>
+<%- include("../partials/Ifooter2") %>

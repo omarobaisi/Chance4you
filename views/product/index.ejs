@@ -1,0 +1,181 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" href="/styles/home.css">
+<title> الصفحة الرئيسية</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+<%- include("../partials/discount") %>
+
+    
+    <div class="main-display shadow round" data-aos="fade-up" data-aos-duration="750">
+        <div class="display-links">
+            <a href="#" class="disp-link">القسم 1</a>
+            <a href="#" class="disp-link">2 القسم</a>
+            <a href="#" class="disp-link">القسم 3</a>
+            <a href="#" class="disp-link">القسم 4</a>
+        </div>
+        <%  
+            var a = Math.floor(Math.random() * product.length), b = Math.floor(Math.random() * product.length), c = Math.floor(Math.random() * product.length), d = Math.floor(Math.random() * product.length);
+            var titlesArr = [product[a].name, product[b].name, product[c].name, product[d].name];
+            var descArr = [product[a].description, product[b].description, product[c].description, product[d].description];
+            var priceArr = ['₪'+product[a].price, '₪'+product[b].price, '₪'+product[c].price, '₪'+product[d].price];
+            var linksArr = ['/product/'+product[a]._id, '/product/'+product[b]._id, '/product/'+product[c]._id, '/product/'+product[d]._id];
+        %>
+        <div class="display-right-container" data-titles="<%=titlesArr[0]%>#<%=titlesArr[1]%>#<%=titlesArr[2]%>#<%=titlesArr[3]%>"
+            data-desc="<%=descArr[0]%>#<%=descArr[1]%>#<%=descArr[2]%>#<%=descArr[3]%>"
+            data-prices="<%=priceArr[0]%>#<%=priceArr[1]%>#<%=priceArr[2]%>#<%=priceArr[3]%>"
+            data-link="<%=linksArr[0]%>#<%=linksArr[1]%>#<%=linksArr[2]%>#<%=linksArr[3]%>"
+            >
+            <img src="/rcs/product.svg">
+            <div>
+                <h1><%=titlesArr[0]%></h1>
+                <p><%=descArr[0]%></p>
+                <h2> <%=priceArr[0]%> </h2>
+                <div style="display: flex;">
+                    <a href="<%=linksArr[0]%>" class="more-btn shadow-light-light round">المزيد</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <% if(currentUser && currentUser.isAdmin){ %> 
+        <a href="/product/new" id="add-btn" data-aos="fade-up" data-aos-duration="750">اضافة منتج جديد</a>
+    <% } %>
+    
+    <h1 class="headline" id="firstHeadline">العروض المميزة</h1>
+    <a href="/product/search/discount" class="headline" id="more">عرض المزيد</a>
+    <div class="scrollView-container">
+        <Button class="arrow-btn shadow-light left-btn"><i class="fas fa-arrow-left shadow"></i></Button>
+        <div class="scroll-view">
+            <% product.forEach(function(product) { %>
+                <% var a = 0 %> 
+                <% if(product.visible == "متوفر" && product.dicountprice && a < 15) { %>
+                    <% a++; %> 
+                    <div href="#" class="card shadow round" data-aos="zoom-out">
+                        <img src="<%= product.image %>">
+                        <div class="card-info-cont">
+                            <a href="/shop/add-to-cart/<%= product._id %>" class="add-btn shadow"><i class="fas fa-plus"></i></a>
+                            <div class="card-title">
+                                <h1>
+                                    <%= product.name %>
+                                </h1>
+                                <% if(product.dicountprice) { %> 
+                                    <h2 style="text-decoration: line-through; margin-bottom: 0;">
+                                        ₪<%= product.price %>
+                                    </h2>
+                                    <h1 style="margin-bottom: 10px; color: #d72731;">
+                                        ₪<%= product.dicountprice %>
+                                    </h1>
+                                <% } else { %>
+                                    <h2>
+                                        ₪<%= product.price %>
+                                    </h2>
+                                <% } %> 
+                                
+                            </div>
+                            <div class="card-bottom">
+                            <h3><%= product.visible %></h2>
+                            <a href="/product/<%= product._id %>" class="round shadow-light">المزيد</a>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% }); %>
+        </div>
+        <Button class="arrow-btn shadow-light right-btn"><i class="fas fa-arrow-right shadow"></i></Button>
+    </div>
+    <img src="/rcs/paths/caret - left.png" class="display-caret">
+
+    <h1 class="headline" id="firstHeadline">الادوات المنزلية</h1>
+    <div class="scrollView-container">
+        <Button class="arrow-btn shadow-light left-btn"><i class="fas fa-arrow-left shadow"></i></Button>
+        <div class="scroll-view">
+            <% product.forEach(function(product) { %>
+                <% var a = 0 %> 
+                <% if(product.visible == "متوفر" && product.category == "الادوات المنزلية" && a < 15) { %> 
+                    <% a++; %> 
+                    <div href="#" class="card shadow round" data-aos="zoom-out">
+                        <img src="<%= product.image %>">
+                        <div class="card-info-cont">
+                            <a href="/shop/add-to-cart/<%= product._id %>" class="add-btn shadow"><i class="fas fa-plus"></i></a>
+                            <div class="card-title">
+                                <h1>
+                                    <%= product.name %>
+                                </h1>
+                                <% if(product.dicountprice) { %> 
+                                    <h2 style="text-decoration: line-through; margin-bottom: 0;">
+                                        ₪<%= product.price %>
+                                    </h2>
+                                    <h1 style="margin-bottom: 10px; color: #d72731;">
+                                        ₪<%= product.dicountprice %>
+                                    </h1>
+                                <% } else { %>
+                                    <h2>
+                                        ₪<%= product.price %>
+                                    </h2>
+                                <% } %> 
+                                
+                            </div>
+                            <div class="card-bottom">
+                            <h3><%= product.visible %></h2>
+                            <a href="/product/<%= product._id %>" class="round shadow-light">المزيد</a>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% }); %>
+        </div>
+        <Button class="arrow-btn shadow-light right-btn"><i class="fas fa-arrow-right shadow"></i></Button>
+    </div>
+    <img src="/rcs/paths/caret - left.png" class="display-caret">
+
+    <h1 class="headline" id="firstHeadline">العاب الاطفال</h1>
+    <div class="scrollView-container">
+        <Button class="arrow-btn shadow-light left-btn"><i class="fas fa-arrow-left shadow"></i></Button>
+        <div class="scroll-view">
+            <% product.forEach(function(product) { %>
+                <% var a = 0 %> 
+                <% if(product.visible == "متوفر" && product.category == "العاب الاطفال" && a < 15) { %> 
+                    <% a++; %> 
+                    <div href="#" class="card shadow round" data-aos="zoom-out">
+                        <img src="<%= product.image %>">
+                        <div class="card-info-cont">
+                            <a href="/shop/add-to-cart/<%= product._id %>" class="add-btn shadow"><i class="fas fa-plus"></i></a>
+                            <div class="card-title">
+                                <h1>
+                                    <%= product.name %>
+                                </h1>
+                                <% if(product.dicountprice) { %> 
+                                    <h2 style="text-decoration: line-through; margin-bottom: 0;">
+                                        ₪<%= product.price %>
+                                    </h2>
+                                    <h1 style="margin-bottom: 10px; color: #d72731;">
+                                        ₪<%= product.dicountprice %>
+                                    </h1>
+                                <% } else { %>
+                                    <h2>
+                                        ₪<%= product.price %>
+                                    </h2>
+                                <% } %> 
+                                
+                            </div>
+                            <div class="card-bottom">
+                            <h3><%= product.visible %></h2>
+                            <a href="/product/<%= product._id %>" class="round shadow-light">المزيد</a>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% }); %>
+        </div>
+        <Button class="arrow-btn shadow-light right-btn"><i class="fas fa-arrow-right shadow"></i></Button>
+    </div>
+    <img src="/rcs/paths/caret - left.png" class="display-caret">
+
+    <% if(currentUser && currentUser.isAdmin){ %> 
+        <a href="/product/search/outofstock" id="add-btn" data-aos="fade-up" data-aos-duration="750">إنتهى من المخزن</a>
+    <% } %>
+
+<%- include("../partials/Ifooter") %>
+<script src="/scripts/home.js"></script>
+<%- include("../partials/Ifooter2") %>

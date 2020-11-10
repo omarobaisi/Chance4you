@@ -1,0 +1,105 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<link rel="stylesheet" href="/styles/cart.css">
+<title>سلة المشتريات</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+<div class="cart-container round shadow" data-aos-duration="750" data-aos="fade-up">
+    <% if(product) { %>
+        <% if(totalPrice != 0) { %>
+            <div class="cart-right" data-itemsCount = "<%=product.length%>">
+                <h1 class="cart-title-lbl">السلة</h1>
+                <% for(var i=0; i<product.length; i++) { %>
+                    <div class="cart-item round shadow" id="item1">
+                        <a href="/shop/remove/<%= product[i].item._id %>"><i class="fas fa-trash" id="del1"></i></a>
+                        <img src="<%= product[i].item.image %>">
+                        <h1><%= product[i].item.name %></h1>
+                        <h2 id="price<%=i+1%>"> <%= product[i].price %>₪ </h2>
+                        <div class="count-box shadow round" style="overflow: hidden;">
+                            <a href="/shop/reduce/<%= product[i].item._id %>" style="height:100%;display:flex;">
+                                <i class="fas fa-minus" id="quanMin<%=i+1%>"></i>
+                            </a>
+                            <input type="text" value="<%= product[i].qty%>" readonly id="quan<%=i+1%>">
+                            <a href="/shop/add/<%= product[i].item._id %>" style="height:100%;display:flex;">
+                                <i class="fas fa-plus" id="quanAdd<%=i+1%>"></i>
+                            </a></div>
+                    </div>
+                <% } %>
+            </div>
+            <div class="cart-left">
+                <h1>
+                    المجموع
+                </h1>
+                <div class="tot-line">
+                    <h2>تكلفة المشتريات</h2>
+                    <h3 id="prodCost"><%= totalPrice %>₪</h3>
+                </div>
+                <div class="tot-line">
+                    <h2>تكلفة التوصيل</h2>
+                    <h3 id="shippingCost">0₪</h3>
+                </div>
+                <div class="tot-line-bottom">
+                    <h2>الاجمالي</h2>
+                    <h3 id="totalCost"><%= totalPrice %>₪</h3>
+                </div>
+                <a href="/shop/checkout" id="contBtn" class="shadow round">إنتقل لعملية الشراء</a>
+            </div>
+        <% } else { %>
+            <div class="cart-right">
+                <h1 class="cart-title-lbl">السلة</h1>
+                <div class="cart-item round shadow" id="cartEmpty">
+                    <h1 style="padding-right: 15px;">السلة فارغة</h1>
+                </div>
+            </div>
+            <div class="cart-left">
+                <h1>
+                    المجموع
+                </h1>
+                <div class="tot-line">
+                    <h2>تكلفة المشتريات</h2>
+                    <h3 id="prodCost">0₪</h3>
+                </div>
+                <div class="tot-line">
+                    <h2>تكلفة التوصيل</h2>
+                    <h3 id="shippingCost">0₪</h3>
+                </div>
+                <div class="tot-line-bottom">
+                    <h2>الاجمالي</h2>
+                    <h3 id="totalCost">0₪</h3>
+                </div>
+                <input type="submit" id="contBtn" class="shadow round" value="المتابعة">
+            </div>
+        <% } %>
+    <% } else { %>
+        <div class="cart-right">
+            <h1 class="cart-title-lbl">السلة</h1>
+            <div class="cart-item round shadow" id="cartEmpty">
+                <h1 style="padding-right: 15px;">السلة فارغة</h1>
+            </div>
+        </div>
+        <div class="cart-left">
+            <h1>
+                المجموع
+            </h1>
+            <div class="tot-line">
+                <h2>تكلفة المشتريات</h2>
+                <h3 id="prodCost">0₪</h3>
+            </div>
+            <div class="tot-line">
+                <h2>تكلفة التوصيل</h2>
+                <h3 id="shippingCost">0₪</h3>
+            </div>
+            <div class="tot-line-bottom">
+                <h2>الاجمالي</h2>
+                <h3 id="totalCost">0₪</h3>
+            </div>
+            <input type="submit" id="contBtn" class="shadow round" value="المتابعة">
+        </div>
+    <% } %>
+</div>
+
+<%- include("../partials/Ifooter") %>
+<script>AOS.init();
+</script>
+<%- include("../partials/Ifooter2") %>

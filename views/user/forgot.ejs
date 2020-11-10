@@ -1,0 +1,19 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<link rel="stylesheet" href="/styles/login.css">
+<title>نسيت كلمة السر</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+<form action="/user/forgot" method="POST" class="login-box round shadow" data-aos="fade-up" data-aos-duration="750">
+    <h1>اعادة ضبط كلمة المرور</h1>
+    <div class="field-row">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="text" class="round shadow" name="email" id="" placeholder="البريد الإلكتروني">
+    </div>
+    <input type="submit" class="round shadow" value="طلب تغيير كلمة المرور">
+</form>
+
+<%- include("../partials/Ifooter") %>
+<script>AOS.init();</script>
+<%- include("../partials/Ifooter2") %>

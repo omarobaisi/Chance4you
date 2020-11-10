@@ -1,0 +1,67 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<link rel="stylesheet" href="/styles/newAccount.css">
+<link rel="stylesheet" href="/styles/editAccount.css">
+<title>معلومات الحساب</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+<form class="main-container round shadow" data-aos="fade-up" data-aos-duration="750">
+    <div class="main-container-right">
+        <div class="cont-row">
+        <h1>تعديل الحساب</h1>
+        <a href="/user/forgot" class="round shadow-light" id="change">تعديل كلمة المرور</a>
+        </div>
+            <h2>المعلومات الشخصية</h2>
+            <div class="cont-row">
+                <label for="firstName">الإسم الأول</label>
+                <input required class="round shadow-light" type="text" name="user[firstname]" placeholder="الإسم الاول" id="" value="<%= currentUser.firstname %>">
+            </div>
+            <div class="cont-row">
+                <label for="secondName">إسم العائلة</label>
+                <input required class="round shadow-light" type="text" name="user[lastname]" placeholder="الإسم الثاني" id="" value="<%= currentUser.lastname %>">
+            </div>
+            <div class="cont-row">
+                <label for="phone">الهاتف</label>
+                <input required class="round shadow-light" type="text" name="user[phone]" placeholder="الهاتف" id="phone" value="0<%= currentUser.phone %>">
+            </div>
+            <div class="cont-row">
+                <label for="city">المدينة</label>
+                <input required class="round shadow-light" type="text" name="user[city]" placeholder="المدينة" id="" value="<%= currentUser.city %>">
+            </div>
+            <div class="cont-row">
+                <label for="address">العنوان</label>
+                <input required class="round shadow-light" type="text" name="user[address]" placeholder="العنوان" id="" value="<%= currentUser.address %>">
+            
+            </div>
+            <div class="cont-row">
+                <input type="submit" class="round shadow-light" value="تعديل الحساب">
+            </div>
+
+    </div>
+
+    <div class="main-container-left">
+        <% if(orders.length === 0) { %>
+            <h1 class="section-header" style="margin: auto;">
+                لا توجد طلبات سابقة
+            </h1>
+        <% } %>
+        <% for(var i=0; i<orders.length; i++) { %>
+            <div class="prev-order-container">
+                <h1>طلب رقم #<%= i+1 %></h1>
+                <div class="prev-order-container-box round shadow">
+                    <div class="prev-order-row">
+                        <h2>التاريخ</h2> <h3><%= orders[i].createdAt.toDateString() %></h3>
+                    </div>
+                    <div class="prev-order-row">
+                        <h2>المجموع</h2> <h3> <%= orders[i].cart.totalPrice %>₪ </h3>
+                    </div>
+                </div>
+            </div>
+        <% } %> 
+    </div>
+</form>
+
+<%- include("../partials/Ifooter") %>
+<script src="/scripts/account.js"></script>
+<%- include("../partials/Ifooter2") %>

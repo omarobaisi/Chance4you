@@ -1,0 +1,100 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<link rel="stylesheet" href="/styles/results.css">
+<link rel="stylesheet" href="/styles/adminOrders.css">
+<title>جميع الطلبات</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+<h1 class="resTitle">الطلبات</h1> 
+    <div class="full-container">
+        <form class="options-container round shadow" data-aos="fade-up" data-aos-duration="750">
+            <h1>
+                إظهار :
+            </h1>
+            <div class="opt-row">
+                <label id="showNotDelLbl">الطلبات التي لم يتم تسليمها</label>
+                <input type="radio" name="deliveredRadio" id="showNotDelivered" checked>
+            </div>
+            <div class="opt-row">
+                <label id="showDelLbl">الطلبات التي تم تسليمها</label>
+                <input type="radio" name="deliveredRadio" id="showDelivered">
+            </div>
+        </form>
+        <div class="results-container round shadow" data-ordersCount="16" data-aos="fade-up" data-aos-duration="750">
+            
+                <!-- No Results -->
+                    <!-- <h1 class="section-header">
+                        لا توجد طلبات سابقة
+                    </h1> -->
+                <h1 class="section-header" id="notDeliveredHeader">
+                    لم يتم تسليمها بعد
+                </h1>
+                <div class="orders-section" id="ordersNotDeliveredSec">
+                    <% for(var i=0; i<orders.length; i++) { %>
+                        <% if(orders[i].delivered === false) { %> 
+                            <div class="order-container" id="order1">
+                                <h1>طلب رقم #<%= i+1 %> </h1>
+                                <div class="order-container-box round shadow">
+                                    <div class="order-row">
+                                        <h2>التاريخ</h2> <h3><%= orders[i].createdAt.toDateString() %></h3>
+                                    </div>
+                                    <div class="order-row">
+                                        <h2>المجموع</h2> <h3> <%= orders[i].cart.totalPrice %>₪ </h3>
+                                    </div>
+                                    <form action="/order/delete/<%= orders[i]._id %>?_method=DELETE" method="POST" class="btns-row" style="margin-bottom: 10px;">
+                                        <a href="/order/<%= orders[i]._id %>" class="order-info round shadow">المعلومات</a>
+                                        <button class="order-info round shadow del"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                    <form action="/order/deliver/<%= orders[i]._id %>" method="POST" id="delForm<%= i+1 %>">
+                                        <label for="" style="font-weight: normal; font-size: 16px;">تم تسليمه</label>
+                                        <input type="checkbox" name="orderDelivered" id="checkbox<%= i+1 %>">
+                                        <input type="submit" style="display:none" id="submitDel<%= i+1 %>">
+                                    </form>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } %>
+                </div>
+                <h1 class="section-header" id="deliveredHeader">
+                    تم تسليمها
+                </h1>
+                <div class="orders-section" id="ordersDeliveredSec">
+                    <% for(var i=0; i<orders.length; i++) { %>
+                        <% if(orders[i].delivered === true) { %>
+                        <div class="order-container" id="order9">
+                            <h1>طلب رقم #<%= i+1 %></h1>
+                            <div class="order-container-box round shadow">
+                                <div class="order-row">
+                                    <h2>التاريخ</h2> <h3><%= orders[i].createdAt.toDateString() %></h3>
+                                </div>
+                                <div class="order-row">
+                                    <h2>المجموع</h2> <h3> <%= orders[i].cart.totalPrice %>₪ </h3>
+                                </div>
+                                <form action="/order/delete/<%= orders[i]._id %>?_method=DELETE" method="POST" class="btns-row" style="margin-bottom: 10px;">
+                                    <a href="/order/<%= orders[i]._id %>" class="order-info round shadow">المعلومات</a>
+                                    <button class="order-info round shadow del"><i class="fas fa-trash"></i></button>
+                                </form>
+                                <form action="/order/deliver/<%= orders[i]._id %>" method="POST" action="" id="delForm<%= i+1 %>">
+                                    <label for="" style="font-weight: normal; font-size: 16px;">تم تسليمه</label>
+                                    <input type="checkbox" name="" id="checkbox<%= i+1 %>" checked>
+                                    <input type="submit" style="display:none" id="submitDel<%= i+1 %>">
+                                </form>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% } %>
+                </div>
+        </div>
+    </div>
+    <div class="botton-page-div">
+        <h3>من أصل 2</h3>
+        <div class="count-box shadow round"><i class="fas fa-caret-left" id="pageLeft"></i><input type="text" value="1" name="" id="pageNum"><i class="fas fa-caret-right" id="pageRight"></i></div>
+        <h3>صفحة</h3>
+    </div>
+
+<%- include("../partials/Ifooter") %>
+<script src="/scripts/pageNav.js"></script>
+<script src="/scripts/adminOrders.js"></script>
+<script src="/scripts/incDecTF.js"></script>
+<%- include("../partials/Ifooter2") %>

@@ -1,0 +1,80 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" href="/styles/results.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<title>نتائج البحث</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+    <h1 class="resTitle"> <%= product.length %> نتيجة</h1>
+    <div class="results-container round shadow" data-itemsCount="25" data-aos="fade-up" data-aos-duration="750">
+        <!-- No Results -->
+        <% if(noMatch !== null) { %>
+        <h1>
+            لا توجد نتائج
+        </h1>
+        <% } %>
+        <% product.forEach(function(product) { %>
+            <% if(product.visible == "متوفر") { %> 
+                <div href="#" class="card shadow round" data-aos="zoom-out">
+                    <img src="<%= product.image %>">
+                    <div class="card-info-cont">
+                        <a href="/shop/add-to-cart/<%= product._id %>" class="add-btn shadow"><i class="fas fa-plus"></i></a>
+                        <div class="card-title">
+                            <h1>
+                                <%= product.name %>
+                            </h1>
+                            <% if(product.dicountprice) { %> 
+                                <h2 style="text-decoration: line-through; margin-bottom: 0;">
+                                    ₪<%= product.price %>
+                                </h2>
+                                <h1 style="margin-bottom: 10px; color: #d72731;">
+                                    ₪<%= product.dicountprice %>
+                                </h1>
+                            <% } else { %>
+                                <h2>
+                                    ₪<%= product.price %>
+                                </h2>
+                            <% } %> 
+                            
+                        </div>
+                        <div class="card-bottom">
+                        <h3><%= product.visible %></h2>
+                        <a href="/product/<%= product._id %>" class="round shadow-light">المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        <% }); %>
+        <% product.forEach(function(product) { %>
+            <% if(product.visible != "متوفر") { %>
+                <div href="#" class="card shadow round" data-aos="zoom-out" style="opacity: 40%;">
+                    <img src="<%= product.image %>">
+                    <div class="card-info-cont">
+                        <a href="" class="add-btn shadow"><i class="fas fa-plus"></i></a>
+                        <div class="card-title">
+                            <h1>
+                                <%= product.name %>
+                            </h1>
+                            <h2>₪<%= product.price %></h2>
+                        </div>
+                        <div class="card-bottom">
+                        <h3 style="color: #d72732;"><%= product.visible %></h2>
+                        <a href="/product/<%= product._id %>" class="round shadow-light">المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %> 
+        <% }); %>
+    </div>
+    <div class="botton-page-div">
+        <h3>من أصل 2</h3>
+        <div class="count-box shadow round"><i class="fas fa-caret-left" id="pageLeft"></i><input type="text" value="1" name="" id="pageNum"><i class="fas fa-caret-right" id="pageRight"></i></div>
+        <h3>صفحة</h3>
+    </div>
+
+
+<%- include("../partials/Ifooter") %>
+<script src="/scripts/incDecTF.js"></script>
+<script src="/scripts/pageNav.js"></script>
+<script>AOS.init();</script>
+<%- include("../partials/Ifooter2") %>

@@ -1,0 +1,42 @@
+<% if(error && error.length > 0 || success && success.length > 0){ %>
+    <div>
+        <% if(error && error.length > 0){ %>
+            <div 
+                class="shadow round"
+                style="background-color:hsla(357, 69%, 50%, 0.75);
+                color:#fff;
+                width: 250px;
+                height: 50px;
+                display: flex;
+                margin: auto;
+                align-items: center;
+                justify-content: center;
+                text-align: right;
+                direction: rtl;
+                font-size: 18px;
+                "
+            >
+                <%= error %>
+            </div>
+        <% } %>
+        
+        <% if(success && success.length > 0){ %>
+            <div 
+            class="shadow round"
+            style="background-color:rgba(49, 172, 36, 0.75);
+            color:#fff;
+            width: 250px;
+            height: 50px;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+            text-align: right;
+            direction: rtl;
+            font-size: 18px;
+            ">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+<% } %>

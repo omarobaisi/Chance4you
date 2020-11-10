@@ -1,0 +1,23 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<link rel="stylesheet" href="/styles/login.css">
+<title>انشاء كلمة سر جديدة</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+<form action="/user/reset/<%= token %>" method="POST" class="login-box round shadow" data-aos="fade-up" data-aos-duration="750">
+    <h1>كلمة مرور جديدة</h1>
+    <div class="field-row">
+        <label for="pass">كلمة المرور الجديدة</label>
+        <input type="password" class="round shadow" name="password" id="" placeholder="كلمة المرور الجديدة">
+    </div>
+    <div class="field-row">
+        <label for="pass">أعد كتابة كلمة المرور</label>
+        <input type="password" class="round shadow" name="confirm" id="" placeholder="أعد كتابة كلمة المرور">
+    </div>
+    <input type="submit" class="round shadow" value="تجديد كلمة المرور">
+</form>
+
+<%- include("../partials/Ifooter") %>
+<script>AOS.init();</script>
+<%- include("../partials/Ifooter2") %>

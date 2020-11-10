@@ -1,0 +1,83 @@
+.login-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 250px;
+    max-width: 650px;
+    height: 400px;
+    background-color: #fff;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.field-row {
+    width: 80%; 
+    height: 45px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 15px 0;
+}
+.field-row input {
+    width: 85%;
+    max-width: 400px;
+    min-width:200px;
+    margin-left: auto;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    font-weight: normal;
+    text-align: right;
+    background-color:#fff;
+    padding: 5px;
+    padding-right: 15px;
+}
+
+.field-row label {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-left: 15px;
+    width: 150px;
+    color: #002731;
+}
+
+.login-box h1 {
+    color: #002731;
+}
+
+.login-box input[type="submit"] {
+    border: none;
+    outline: none;
+    background-color: #002731;
+    color: white;
+    height: 55px;
+    width: 175px;
+    padding: 5px 10px;
+    font-size: 20px;
+    text-align: center;
+    transition: 0.3s;
+    margin: 25px auto;
+}
+
+.login-box input[type="submit"]:hover {
+    background-color: #066780;
+}
+.forgot-password {
+    margin-right: auto;
+    margin-top: 10px;
+    margin-left: 65px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #002371;
+}
+@media(max-width:600px) {
+    .field-row label {
+        display: none;
+    }
+    .field-row input {
+        width: 100%;
+    }
+}

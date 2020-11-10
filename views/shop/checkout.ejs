@@ -1,0 +1,100 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" href="/styles/checkout.css">
+<title>تأكيد الطلب</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+    
+<% if(!currentUser) { %>
+    <div action="/shop/noncheckout" method="POST" class="main-container round shadow" data-aos="fade-up" data-aos-duration="750">
+        <form class="main-container-right">
+            <h1>إتمام الطلب دون حساب</h1>
+            <h2>المعلومات الشخصية</h2>
+            <div class="cont-row">
+                <label for="name">الاسم</label>
+                <input required class="round shadow-light" type="text" name="name" placeholder="الإسم الاول" id="">
+            </div>
+            <div class="cont-row">
+                <label for="email">البريد الاكتروني (اختياري)</label>
+                <input class="round shadow-light" type="text" name="email" style="direction:rtl;" placeholder="البريد الاكتروني (اختياري)" id="">
+            </div>
+            <div class="cont-row">
+                <label for="phone">رقم الهاتف</label>
+                <input required class="round shadow-light" type="tel" pattern="[0-9]{10}" name="phone" placeholder="رقم الهاتف - مثال : 0598123456" id="phone">
+            </div>
+            <div class="cont-row">
+                <label for="city">المدينة</label>
+                <input required class="round shadow-light" type="text" name="city" placeholder="المدينة" id="">
+            </div>
+            <div class="cont-row">
+                <label for="address">العنوان</label>
+                <input required class="round shadow-light" type="text" name="address" placeholder="العنوان" id="">
+            </div>
+            <button id="subBtn" class="shadow round" style="display:none;"></button>
+        </form>
+        <form action="/user/login" method="POST" class="main-container-left">
+            <h1 style="margin-right: 20px;">لديك حساب بالفعل؟</h1>
+            <h2>تسجيل الدخول</h2>
+            <div class="cont-row">
+                <label for="eMail">البريد الإلكتروني</label>
+                <input required class="round shadow" type="email" name="email" placeholder="البريد الإلكتروني" id="">
+            </div>
+            <div class="cont-row">
+                <label for="pass">كلمة المرور</label>
+                <input required class="round shadow" type="password" name="password" placeholder="كلمة المرور" id="">
+            </div>
+            <div class="cont-row" style="display: none;">
+                <input required class="round shadow" type="password" name="url" value="abc" placeholder="كلمة المرور" id="">
+            </div>
+            <div class="cont-row">
+                <input type="submit" class="round shadow" value="تسجيل الدخول">
+            </div>
+        </form>
+    </div>
+<% } else { %>
+    <form action="/shop/usercheckout" method="POST" class="main-container-right logged-in round shadow" data-aos="fade-up" data-aos="750">
+        <h1>المعلومات الشخصية</h1>
+        <div class="cont-row">
+            <label for="firstName">الإسم الأول</label>
+            <input required class="round shadow-light" type="text" name="name" placeholder="الإسم الاول" id="" value="<%= currentUser.firstname %><%= currentUser.lastname %>">
+        </div>
+        <div class="cont-row">
+            <label for="email">البريد الاكتروني</label>
+            <input class="round shadow-light" type="text" name="email" placeholder="البريد الاكتروني" id="" value="<%= currentUser.email %>">
+        </div>
+        <div class="cont-row">
+            <label for="phone">رقم الهاتف</label>
+            <input required class="round shadow-light" type="tel" pattern="[0-9]{10}" name="phone" placeholder="رقم الهاتف - مثال : 0598123456" id="phone" value="0<%= currentUser.phone %>">
+        </div>
+        <div class="cont-row">
+            <label for="city">المدينة</label>
+            <input required class="round shadow-light" type="text" name="city" placeholder="المدينة" id="" value="<%= currentUser.city %>">
+        </div>
+        <div class="cont-row">
+            <label for="address">العنوان</label>
+            <input required class="round shadow-light" type="text" name="address" placeholder="العنوان" id="" value="<%= currentUser.address %>">
+        </div>
+        <button id="subBtn" class="shadow round" style="display:none;"></button>
+    </form>
+<% } %> 
+    <div class="price-cont shadow round" data-aos="fade-up" data-aos-duration="750">
+        <h1>
+            المجموع
+        </h1>
+        <div class="tot-line">
+            <h2>تكلفة المشتريات</h2>
+            <h3 id="prodCost"><%= total %>₪</h3>
+        </div>
+        <div class="tot-line">
+            <h2>تكلفة التوصيل</h2>
+            <h3 id="shippingCost">0₪</h3>
+        </div>
+        <div class="tot-line-bottom">
+            <h2>الاجمالي</h2>
+            <h3 id="totalCost"><%= total %>₪</h3>
+        </div>
+        <button id="contBtn" class="shadow round">إتمام الطلب</button>
+    </div>
+
+<%- include("../partials/Ifooter") %>
+<script src="/scripts/account.js"></script>
+<%- include("../partials/Ifooter2") %>

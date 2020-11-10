@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "heroku"]
+	url = https://git.heroku.com/thawing-reaches-91200.git
+	fetch = +refs/heads/*:refs/remotes/heroku/*

@@ -1,0 +1,178 @@
+.main-display {
+    display:flex;
+    width:70%;
+    height: 500px;
+    overflow: hidden;
+    background-color: #fff;
+    margin:auto;
+    margin-top: 50px;
+}
+.display-links {
+    z-index: 2;
+    font-size: 23px;
+    font-weight: bold;
+    color: #066780;
+    display:flex;
+    flex-direction: column;
+    width: 12%;
+    justify-content: center;
+}
+.disp-link {
+    text-decoration: none;
+    color: #066780;
+    padding: 35px 0;
+}
+.disp-link:hover {
+    color: #002731;
+}
+.display-right-container {
+    display: flex;
+    flex-direction: row-reverse;
+    background-image: url("../rcs/paths/Path 12 (2).svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 80%;
+    margin-left: auto;
+    color:white;
+    padding: 50px 15px;
+}
+.display-right-container h1 {
+    font-size: 40px;
+}
+.display-right-container p {
+    font-size: 20px;
+    margin-left: 15px;
+}
+.display-right-container img {
+    margin-left: 25px;
+    max-height: 400px;
+    max-width: 40%;
+    align-self: center;
+}
+.display-right-container>div{
+    margin-right: 25px;
+    display:flex;
+    flex-direction: column;
+}
+.display-right-container h2 {
+    font-size:32px;
+}
+.more-btn {
+    color: #066780;
+    font-family: 'Segoe UI';
+    font-size: 25px;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 40px;
+    font-weight: bold;
+    background-color :#fff;
+    transition: 0.3s;
+}
+.more-btn:hover {
+    color: white;
+    background-color: #002731;
+}
+#editProdBtn {
+    background-color: #31ac24;
+    color: white;
+    width: 40px;
+    margin: 0;
+    margin-left: 15px;
+}
+#editProdBtn:hover {
+    background-color: hsl(114, 66%, 30%);
+}
+.display-caret {
+    opacity: 0;
+    position: absolute;
+    z-index: 10;
+}
+#add-btn{
+    color: #fff;
+    font-family: 'Segoe UI';
+    font-size: 25px;
+    font-weight: 400;
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    margin:0 auto;
+    margin-top: 30px;
+    background-color :#002731;
+    transition: 0.3s;
+}
+#add-btn:hover {
+    color: white;
+    background-color:#066780;
+}
+#more{
+    display: flex;
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #d72731;
+}
+@media (max-width: 1650px) {
+    .main-display {
+        height: 550px;
+        width: 80%;
+    }
+}
+@media (max-width: 1375px) {
+    .main-display {
+        height: 650px;
+    }
+}
+@media (max-width: 1200px) {
+    .display-right-container img {
+        max-width: 75%;
+    }
+    .display-caret {
+        display: none;
+    }
+    .main-display {
+        flex-direction: column;
+        height: 875px;
+    }
+    .display-right-container {
+        margin: 0;
+        align-self: center;
+        background-image: none;
+        background-color: #066780;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    .display-right-container h1, .display-right-container h2, .display-right-container p {
+        margin: 15px 0;
+    }
+    .display-links {
+        flex-direction: row-reverse;
+        padding: 0;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .disp-link {
+        text-align: center;
+        height: 100%;
+        padding: 25px 0;
+        width: 20%;
+    }
+    .disp-link:hover {
+        color:#fff;
+        background-color: #066780;;
+    }
+}
+@media (max-width: 850px) {
+    .main-display {
+        width:100%;
+    }
+    .main-display {
+        height: 900px;
+    }
+}

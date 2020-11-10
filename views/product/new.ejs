@@ -1,0 +1,89 @@
+<%- include("../partials/Iheader") %>
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<link rel="stylesheet" href="/styles/modProd.css">
+<title>إضافة منتج</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+<form style="margin-bottom: 300px; margin-top: 200px;" action="/product" method="POST" enctype="multipart/form-data" class="round shadow prod-bg" data-aos="fade-up" data-aos-duration="750">
+    <div class="prod-bg-right">
+        <h1>إضافة منتج</h1>
+        <div class="field-row">
+            <label for="pName">الإسم</label>
+            <input type="text" class="round shadow-light" name="product[name]" id="" placeholder="اسم المنتج" required>
+        </div>
+        <div class="field-row">
+            <label for="pDesc">الوصف</label>
+            <input type="text" class="round shadow-light" name="product[description]" id="" placeholder="وصف المنتج">
+        </div>
+        <div class="field-row">
+            <label for="pQuantity">الكمية</label>
+            <div class="count-box shadow round" id="quanBox"><i class="fas fa-minus" id="quanMin"></i><input type="text" value="1" name="product[instock]" id="quan"><i class="fas fa-plus" id="quanAdd"></i></div>
+        </div>
+        <div class="field-row">
+            <label for="pAvailable">متوفر</label>
+            <div class="box round shadow-light" id="avlBox">
+                <input type="text" name="product[visible]" class="combo-btn" id="avlBtn" value="متوفر" readonly>
+                <div class="menu d-none" id="avlMenu">
+                    <a href="#" class="avlMenuBtn">متوفر</a>
+                    <a href="#" class="avlMenuBtn">غير متوفر</a>
+                </div>
+            </div>
+        </div>
+        <div class="field-row">
+            <label for="pImg">صورة العرض</label>
+            <input class="img-mask shadow-light round" type="file" class="filepond" name="image" id="filepond" placeholder="اختار الصورة" accept="image/png, image/jpeg, image/jpg" required>
+        </div>
+    </div>
+    <div class="prod-bg-left">
+        <div class="field-row">
+            <label for="pColor">اللون</label>
+            <input type="text" class="round shadow" name="product[color]" id="" placeholder="لون المنتج">
+        </div>
+        <div class="field-row">
+            <label for="pWeight">الوزن</label>
+            <input type="text" class="round shadow" name="product[weight]" id="" placeholder="وزن المنتج">
+        </div>
+        <div class="field-row">
+            <label for="pDim">القياسات</label>
+            <input type="text" class="round shadow" name="product[size]" id="" placeholder="قياسات المنتج">
+        </div>
+        <div class="field-row">
+            <label for="pPrice">السعر</label>
+            <input type="text" class="round shadow" name="product[price]" id="priceInp" placeholder="سعر المنتج" required>
+        </div>
+        <div class="field-row">
+            <label for="pOffPrice">سعر العرض</label>
+            <input type="text" class="round shadow" name="product[dicountprice]" id="disPriceInp" placeholder="السعر بعد الخصم">
+        </div>
+        <div class="field-row">
+            <label for="pCat">الفئة</label>
+            <div class="box round shadow">
+                <input type="text" name="product[category]" class="combo-btn" id="catBtn" value="ادوات مطبخ" readonly>
+                <div class="menu d-none" id="catMenu">
+                    <a href="#" class="catMenuBtn">الادوات المنزلية</a>
+                    <a href="#" class="catMenuBtn">التحف والهدايا</a>
+                    <a href="#" class="catMenuBtn">العاب الاطفال</a>
+                    <a href="#" class="catMenuBtn">القرطاسية</a>
+                    <a href="#" class="catMenuBtn">ملابس رجالية</a>
+                    <a href="#" class="catMenuBtn">ملابس نسائية</a>
+                    <a href="#" class="catMenuBtn">احذية رجالي</a>
+                    <a href="#" class="catMenuBtn">احذية نسائي</a>
+                    <a href="#" class="catMenuBtn">الاكسسوارات</a>
+                    <a href="#" class="catMenuBtn">المكياج والتجميل</a>
+                </div>
+            </div>
+        </div>
+        <div class="field-row">
+            <input type="submit" class="round shadow" value="إضافة المنتج">
+        </div>
+    </div>
+</form>
+<label hidden id="0" style="display: none;"></label>
+
+<%- include("../partials/Ifooter") %>
+<script src="/scripts/incDecTF.js"></script>
+<script src="/scripts/addProd.js"></script>
+<%- include("../partials/Ifooter2") %>

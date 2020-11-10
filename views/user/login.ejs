@@ -1,0 +1,25 @@
+<%- include("../partials/Iheader") %>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/">
+<link rel="stylesheet" href="/styles/login.css">
+<title>تسجيل الدخول</title>
+<%- include("../partials/Iheader2") %>
+<%- include("../partials/flash") %>
+
+<form action="/user/login" method="POST" class="login-box round shadow" data-aos="fade-up" data-aos-duration="750">
+    <h1>تسجيل الدخول</h1>
+    <div class="field-row">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="text" class="round shadow" name="email" id="" placeholder="البريد الإلكتروني">
+    </div>
+    <div class="field-row">
+        <label for="pass">كلمة المرور</label>
+        <input type="password" class="round shadow" name="password" id="" placeholder="كلمة المرور">
+    </div>
+    <a href="/user/register" class="forgot-password">ليس لديك حساب؟</a>
+    <a href="/user/forgot" class="forgot-password">نسيت كلمة المرور؟</a>
+    <input type="submit" class="round shadow" value="تسجيل الدخول">
+</form>
+
+<%- include("../partials/Ifooter") %>
+<script>AOS.init();</script>
+<%- include("../partials/Ifooter2") %>
