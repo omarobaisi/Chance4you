@@ -172,6 +172,9 @@
         width: 100%;
         margin: auto;
     }
+    .product-bg {
+        height: 1000px;
+    }
     #imgExpanded {
         max-width: 90%;
         max-height: 90%;

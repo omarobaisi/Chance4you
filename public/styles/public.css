@@ -326,9 +326,20 @@ input[type="number"] {
     padding-right: 10px;
     color: #fff;
 }
+#svgDiv{
+    display: block;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
 @media (max-width:1200px) {
     #dropBtn {
         display: inline;
+    }
+    .text-field {
+        border-radius: 0;
     }
     .search-div {
         width: 80%;
@@ -357,8 +368,30 @@ input[type="number"] {
     #logoHid{
         display: block;
     }
+    .path {
+        display: none;
+    }
+    #svgDiv {
+        height: 500px;
+        background-color: #002731;
+    }
     #dis{
         width: 90%;
         font-size: 17px;
+    }
+}
+
+@media (max-width: 500px) {
+    #dis{
+        width: 95%;
+        font-size: 13px;
+    }
+    #a{
+        padding-right: 5px;
+        font-size: 20px;
+    }
+    #a:hover{
+        padding-right: 5px;
+        color: #fff;
     }
 }
