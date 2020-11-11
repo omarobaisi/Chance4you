@@ -7,7 +7,7 @@ input {
     flex-direction: row-reverse;
     width: 70%;
     background-color: #fff;
-    height: 700px;
+    min-height: 700px;
     margin: auto;
 }
 .prod-bg-right {
@@ -21,7 +21,7 @@ input {
 }
 .field-row {
     width: 80%; 
-    height: 45px;
+    min-height: 45px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -145,7 +145,7 @@ input {
 @media (max-width:1200px) {
     .prod-bg {
         flex-direction: column;
-        height: 1400px;
+        min-height: 1400px;
         width: 85%;
     }
     .prod-bg-right {
@@ -163,12 +163,40 @@ input {
     .prod-bg-left {
         width: 100%;
     }
+    #quan {
+        min-height: 41px;
+    }
+    #quanBox, .count-box {
+        margin: 0;
+        align-self: center;
+        justify-self: center;
+    }
+    .field-row>input {
+        min-height: 40px;
+    }
 }
 @media (max-width:600px) {
-    .field-row>label {
-        display: none;
+    .field-row{
+        flex-direction: column;
+        min-height: 60px;
+        width:100%;
+        margin: 0 15px;
+    }
+    .field-row>label{
+        margin: 25px 0;
+        padding: 0;
+        text-align: center
+    }
+    .field-row>input {
+        width: 90%;
+        margin: 0 auto;
+        min-height: 40px;
     }
     .prod-bg {
-        width: 105%;
+        width: 100%;
+    }
+    .field-row>input[type="submit"] {
+        margin: 0 15px;
+        font-size: 20px;
     }
 }

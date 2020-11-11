@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row-reverse;
     width: 75%;
-    height: 700px;
+    min-height: 700px;
     background-color: white;
     margin: auto;
     margin-top:50px;
@@ -191,7 +191,7 @@
     .main-container-right {
         padding: 0;
         background-image: none;
-        background-color: #002731;
+        background-color: #066780;
         width: 100%;
         height: 70%;
         justify-content: center;
@@ -219,5 +219,38 @@
 @media (max-width: 600px) {
     .cont-row label {
         display: none;
+    }
+    .price-cont {
+        width:90%;
+    }
+}
+
+@media (max-width: 300px) {
+    #contBtn {
+        margin: 0;
+        width: 100%;
+        font-size: 15px;
+    }
+    .price-cont {
+        align-content: center;
+        justify-content: center;
+        text-align: right;
+        padding: 20px 0px;
+        width:100%;
+    }
+    .price-cont h1 {
+        font-size: 22px;
+        margin: 0;
+        text-align: right;
+    }
+    .price-cont .tot-line {
+        margin: 0;
+        text-align: right;
+        justify-self: right;
+        align-self: right;
+        width: 100%;
+    }
+    .price-cont h2, .price-cont h3 {
+        font-size: 17px;
     }
 }

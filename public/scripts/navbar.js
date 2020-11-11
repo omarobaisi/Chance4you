@@ -46,14 +46,12 @@ function adjustBtns() {
         document.getElementById('topSvg').setAttribute("height", "941.742");
         $('#acc').html('<i class="fas fa-user nav-icon" id="cI-4"></i>');
         $('#cart').html('<i class="fas fa-shopping-cart nav-icon"></i></a>');  
-        $('#accBox').appendTo('.navbar-right');
-        $('#cart').appendTo('.navbar-right');
+        $('#staticDiv').appendTo('.navbar-right');
     } else {
         document.getElementById('topSvg').removeAttribute("height");
         $('#acc').html('<i class="fas fa-user nav-icon" id="cI-4"></i>حسابي');
         $('#cart').html('<i class="fas fa-shopping-cart nav-icon"></i>السلة</a>');
-        $('#accBox').appendTo('.navbar-links');
-        $('#cart').appendTo('.navbar-links');
+        $('#staticDiv').appendTo('.navbar-links');
     }
     
     if (!extended) {

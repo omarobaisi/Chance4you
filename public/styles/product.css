@@ -1,7 +1,7 @@
 .product-bg {
     display: flex;
     width: 90%;
-    height: 800px;
+    min-height: 800px;
     margin:  50px auto 0 auto;
     background-color: #fff;
     flex-direction: row-reverse;
@@ -70,6 +70,7 @@
 }
 .info-header h1 {
     font-size: 40px;
+    word-break: break-word;
 }
 .info-header h2 {
     font-size: 20px;
@@ -154,7 +155,7 @@
 @media (max-width:1200px) {
     .product-bg {
         flex-direction: column-reverse;
-        height: 1500px;
+        min-height: 1500px;
     }
     .product-right {
         flex-direction: column;
@@ -166,17 +167,77 @@
     .img-prev {
         max-width: 100%;
     }
+    .product-bg {
+        min-height: 400px;
+    }
 }
 @media (max-width:600px) {
     .count-line {
         width: 100%;
         margin: auto;
     }
-    .product-bg {
-        height: 1000px;
-    }
     #imgExpanded {
         max-width: 90%;
         max-height: 90%;
+    }
+}
+@media (max-width:300px) {
+    .product-bg {
+        width: 100%;
+    }
+    .info-header {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .info-header h2 {
+        margin: 0;
+    }
+    .product-right .product-info {
+        margin:0;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-info p{
+        text-align: center;
+    }
+    .product-right {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .count-line {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+    }
+    .count-line h1   {
+        margin:0;
+    }
+    .count-line h2 {
+        margin:0;
+    }
+    .info-header h1 {
+        font-size: 22px;
+        margin: 0;
+        padding: 0;
+    }
+    .info-header {
+        min-width: 100px;
+        justify-content: center;
+        max-width: 100%;
+    }
+    .info-header h2 {
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+    }
+    .mod-cont a {
+        margin:0;
+    }
+    .cart-left {
+        padding: 0;
+        margin: 0;
     }
 }

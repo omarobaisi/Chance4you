@@ -18,6 +18,7 @@ html, body {
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
+    direction: rtl;
 }
 .path {
     display: block;
@@ -326,13 +327,17 @@ input[type="number"] {
     padding-right: 10px;
     color: #fff;
 }
-#svgDiv{
+#staticDiv {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+#svgDiv {
     display: block;
     position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 0;
     width: 100%;
+    z-index: -1;
 }
 #contact {
     font-size: 30px;
@@ -359,6 +364,13 @@ input[type="number"] {
     }
 }
 @media (max-width: 850px) {
+    #topSvg {
+        display: none;
+    }
+    #svgDiv {
+        background-color: #002731;
+        height: 750px;
+    }
     .search-div {
         width: 90%;
         max-width: 575px;
@@ -374,10 +386,6 @@ input[type="number"] {
     }
     .path {
         display: none;
-    }
-    #svgDiv {
-        height: 500px;
-        background-color: #002731;
     }
     #dis{
         width: 90%;
@@ -414,5 +422,12 @@ input[type="number"] {
     }
     .navbar-contianer {
         min-height: 150px;
+    }
+    .navbar-right {
+        flex-direction: column;
+    }
+    #staticDiv {
+        display: flex;
+        margin: 15px 0;
     }
 }

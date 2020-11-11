@@ -15,7 +15,7 @@
             <div class="info-header">
                 <h1><%= product.name %></h1>
                 <% if(product.visible == "متوفر") { %> 
-                    <h2 id="aval" style="margin-right: 50px;"><%= product.visible %></h2>
+                    <h2 id="aval"><%= product.visible %></h2>
                 <% } else { %>
                     <h2 id="aval" style="color: hsl(357, 69%, 40%);margin-right: 50px;width: 200px"><%= product.visible %></h2>
                 <% } %> 

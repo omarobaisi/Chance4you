@@ -166,3 +166,31 @@
         margin-right: 15px;
     }
 }
+@media (max-width: 300px) {
+    #contBtn {
+        margin: 0;
+        width: 100%;
+        font-size: 15px;
+    }
+    .cart-left {
+        align-content: center;
+        justify-content: center;
+        text-align: right;
+        padding: 20px 0px;
+    }
+    .cart-left h1 {
+        font-size: 22px;
+        margin: 0;
+        text-align: right;
+    }
+    .cart-left .tot-line {
+        margin: 0;
+        text-align: right;
+        justify-self: right;
+        align-self: right;
+        width: 100%;
+    }
+    .cart-left h2, .cart-left h3 {
+        font-size: 17px;
+    }
+}
