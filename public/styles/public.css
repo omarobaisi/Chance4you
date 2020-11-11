@@ -334,6 +334,10 @@ input[type="number"] {
     top: 0;
     width: 100%;
 }
+#contact {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
 @media (max-width:1200px) {
     #dropBtn {
         display: inline;
@@ -380,7 +384,6 @@ input[type="number"] {
         font-size: 17px;
     }
 }
-
 @media (max-width: 500px) {
     #dis{
         width: 95%;
@@ -393,5 +396,23 @@ input[type="number"] {
     #a:hover{
         padding-right: 5px;
         color: #fff;
+    }
+    #contact {
+        display: none;
+    }
+}
+@media (max-width:400px) {
+    .navbar-right {
+        flex-direction: column;
+    }
+    #cart {
+        text-align: center;
+        margin: 15px 0;
+    }
+    #acc {
+        margin-top: 15px;
+    }
+    .navbar-contianer {
+        min-height: 150px;
     }
 }
