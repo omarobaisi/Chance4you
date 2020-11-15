@@ -37,11 +37,21 @@
     padding: 50px 15px;
 }
 .display-right-container h1 {
+    direction: rtl;
     font-size: 40px;
+    padding-left: 15px;
+}
+#itemInfoDiv {
+    overflow: hidden;
 }
 .display-right-container p {
+    direction: rtl;
     font-size: 20px;
     margin-left: 15px;
+    padding-left: 15px;
+    word-wrap: break-word;
+    max-height: 200px;
+    overflow: hidden;
 }
 .display-right-container img {
     margin-left: 25px;

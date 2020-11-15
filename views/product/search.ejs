@@ -13,8 +13,10 @@
             لا توجد نتائج
         </h1>
         <% } %>
+        <% var a = 0; %> 
         <% product.forEach(function(product) { %>
-            <% if(product.visible == "متوفر") { %> 
+            <% if(product.visible == "متوفر" && a <= a+10) { %> 
+                <% a++; %>
                 <div href="#" class="card shadow round" data-aos="zoom-out">
                     <img src="<%= product.image %>">
                     <div class="card-info-cont">
@@ -46,7 +48,8 @@
             <% } %>
         <% }); %>
         <% product.forEach(function(product) { %>
-            <% if(product.visible != "متوفر") { %>
+            <% if(product.visible != "متوفر" && a <= a+10) { %>
+                <% a++; %>
                 <div href="#" class="card shadow round" data-aos="zoom-out" style="opacity: 40%;">
                     <img src="<%= product.image %>">
                     <div class="card-info-cont">
@@ -65,6 +68,7 @@
                 </div>
             <% } %> 
         <% }); %>
+        <% console.log(a) %> 
     </div>
     <div class="botton-page-div">
         <h3>من أصل 2</h3>

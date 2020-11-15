@@ -40,6 +40,10 @@ router.get('/', function(req, res) {
 // Search
 router.get('/search', function(req, res) {
     var noMatch = null;
+    if(req.query.page) {
+        var a = req.query.page;
+        console.log(a);
+    }
     if(req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         // Get all campgrounds from DB
@@ -50,7 +54,7 @@ router.get('/search', function(req, res) {
                 if(found.length < 1) {
                     noMatch = "لا يوجد منتجات بنفس هذا الاسم";
                 }
-                res.render("product/search",{product:found, noMatch: noMatch});
+                res.render("product/search",{product: found, noMatch: noMatch, a: a});
             }
         });
     } else {

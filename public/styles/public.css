@@ -343,6 +343,9 @@ input[type="number"] {
     font-size: 30px;
     margin-bottom: 30px;
 }
+#contact:hover {
+    color: #066780;
+}
 @media (max-width:1200px) {
     #dropBtn {
         display: inline;
