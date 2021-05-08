@@ -29,6 +29,18 @@
                 <label for="address">العنوان</label>
                 <input required class="round shadow-light" type="text" name="address" placeholder="العنوان" id="">
             </div>
+            <div class="cont-row">
+                <label for="address">رقم البطافة</label>
+                <input required class="round shadow-light" type="text" placeholder="رقم البطاقة" id="">
+            </div>
+            <div class="cont-row">
+                <label for="address">تاريخ انتهاء البطاقة</label>
+                <input required class="round shadow-light" type="text" placeholder="تاريخ الانتهاء" id="">
+            </div>
+            <div class="cont-row">
+                <label for="address">CVV2 رمز</label>
+                <input required class="round shadow-light" type="number" placeholder="CCV2" id="">
+            </div>
             <button id="subBtn" class="shadow round" style="display:none;"></button>
         </form>
         <form action="/user/login" method="POST" class="main-container-left">
@@ -48,6 +60,7 @@
             <div class="cont-row">
                 <input type="submit" class="round shadow" value="تسجيل الدخول">
             </div>
+            <a href="https://www.paypal.com/us/signin" id="paypal"><img style="width: 100%;" src="https://i0.wp.com/www.ecommerce-nation.com/wp-content/uploads/2018/01/paypal.png?fit=1000%2C600&ssl=1" alt=""></a>
         </form>
     </div>
 <% } else { %>
@@ -74,6 +87,7 @@
             <input required class="round shadow-light" type="text" name="address" placeholder="العنوان" id="" value="<%= currentUser.address %>">
         </div>
         <button id="subBtn" class="shadow round" style="display:none;"></button>
+
     </form>
 <% } %> 
     <div class="price-cont shadow round" data-aos="fade-up" data-aos-duration="750">

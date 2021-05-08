@@ -20,6 +20,7 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "gh-pages": "^3.1.0",
     "hogan.js": "^3.0.2",
     "method-override": "^3.0.0",
     "moment": "^2.29.1",

@@ -183,6 +183,12 @@
     background-color: #066780;
     color: #fff;
 }
+#paypal {
+    margin-top: 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 @media (max-width: 1200px) {
     .main-container {
         flex-direction: column;
@@ -209,6 +215,9 @@
         padding: 0;
         height: 30%;
         width: 100%;
+    }
+    body {
+        display: none;
     }
 }
 @media (max-width: 900px) {
